@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<!-- cs/pro/5733417664643072 -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>New program</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&icon_names=music_note,sports_esports,brush,article,library_add,mail,phone,language,favorite,home,person,code,notifications,campaign,arrow_upward,expand_more,expand_less" />
+     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Manufacturing+Consent&family=Lacquer&family=Press+Start+2P&family=UnifrakturMaguntia&display=swap" rel="stylesheet"> 
+    
+    <!-- Images
+    Does this help...? maybe.
+    -->
+    <link rel="preload" href="https://upload.wikimedia.org/wikipedia/commons/9/96/Fort_Worth_Botanical_Gardens_Rose_Garden_Wiki_%281_of_1%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" as="image" />
+    <link rel="preload" href="https://upload.wikimedia.org/wikipedia/commons/a/a0/Yellow_House_Draw_Head_2009.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" as="image" />
+    <link rel="preload" href="https://upload.wikimedia.org/wikipedia/commons/8/8a/How_to_find_newborn_stars_%28potw2434a%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" as="image" />
+    <link rel="preload" href="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" as="image" />
+    <link rel="preload" href="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" as="image" />
+    <link rel="preload" href="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" as="image" />
+    <link rel="preload" href="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" as="image" />
+    <link rel="preload" href="https://upload.wikimedia.org/wikipedia/commons/c/c6/P5.js_icon.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" as="image" />
+    <link rel="preload" href="https://upload.wikimedia.org/wikipedia/commons/f/fd/GitHub_Invertocat_Logo_invert.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" as="image" />
+    
+    <style>
+      /* I'll clean up...eventually... <:J */
+      #container {
+        height: 100vmin;
+        /* min-height: 600px; */
+        display: flex;
+        align-items: center;
+        flex-flow: row-reverse;
+        flex-shrink: 0;
+        box-shadow: 0 0 17px #000;
+      }
+      #container > * {
+        height: 100vmin;
+        /* min-height: 600px; */
+        flex-shrink: 0;
+      }
+      #doc-links li:not(:first-of-type) {
+        cursor: pointer;
+      }
+      #doc-links li:not(:first-of-type):hover {
+        word-spacing: 10px;
+      }
+      #doc-links li:not(:first-of-type):active {
+        word-spacing: 20px;
+      }
+      #doc-links li:last-of-type:hover {
+        text-indent: 5px;
+      }
+      #fine-print {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        text-align: left;
+        font-size: 8px;
+        font-family: Arial;
+      }
+      #footer-svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      #hero {
+        position: relative;
+        width: 100vmin;
+        /* min-width: 600px; */
+        height: 100vmin;
+        /* min-height: 600px; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #hero button {
+        position: absolute;
+        right: 3vmin;
+        bottom: 3vmin;
+        font-weight: 800;
+        font-size: 7.5vmin;
+        transition: all 100ms;
+      }
+      #hero button:hover {
+        box-shadow: -2px 3px 4px #000a;
+      }
+      #hero button:active {
+        background-color: #000a;
+        color: white;
+        box-shadow: none;
+      }
+      #hero > svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+      #heroic-title {
+        font-size: 20vmin;
+        margin-top: -50px;
+        color: #fff;
+      }
+      #heroic-text {
+        display: flex;
+        font-family: monospace;
+        text-align: center;
+        max-width: 60vmin;
+        font-style: italic;
+      }
+      #lock {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+      }
+      #menu-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: sticky;
+        top: 3vmin;
+        margin: 0 3vmin -10vmin auto; /* sooo cheeky xD */
+        z-index: 10;
+      }
+      #menu-button:hover {
+        box-shadow: -2px 3px 4px #000a;
+        color: #ff4040;
+      }
+      #menu-button:active {
+        background-color: #000a;
+        color: white;
+        box-shadow: none;
+      }
+      #menu-button > span {
+        font-size: 7vmin;
+      }
+      #menu-button, #hero button {
+        width: 10vmin;
+        max-width: 75px;
+        height: 10vmin;
+        max-height: 75px;
+        border-radius: 50%;
+        background-color: #fffa;
+      }
+      #projects {
+        max-height: 90vmin;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        text-align: center;
+        background:
+          linear-gradient(#001f1f40, transparent 2% 98%, #001f1f40),
+          radial-gradient(
+            circle at 30% 50%,
+            #ff000040 18%,
+            transparent 18.25%
+          ),
+          radial-gradient(
+            circle at 50% 50%,
+            #00800040 25%,
+            transparent 25.25%
+          ),
+          radial-gradient(
+            circle at 70% 50%,
+            #0000ff40 18%,
+            transparent 18.25%
+          );
+        overflow: hidden auto;
+        scroll-snap-type: y mandatory;
+        scrollbar-width: thin;
+        scrollbar-color: #001f1f #ff8080;
+        border: solid #00000080;
+        border-width: 0 1px;
+      }
+      #projects-heading { /* !PEP_img code image */
+        background:
+          linear-gradient(transparent 98%, #00000080),
+          url("https://upload.wikimedia.org/wikipedia/commons/2/21/Python_image.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original") top left / cover;
+        color: #fff;
+        text-shadow: 0 0 4px #ff8080;
+      }
+      #s1 {
+        box-shadow: 0 -2px 8px 4px #fff;
+      }
+      #s1 > div {
+        position: relative;
+        z-index: 1;
+      }
+      #s1 > div > div {
+        display: flex;
+        justify-content: space-between;
+      }
+      #s1 p {
+        align-self: center;
+        width: 30vmin;
+        text-align: justify;
+        font-size: 1.1em;
+      }
+      #s1 svg {
+        width: 50vmin;
+        height: 50vmin;
+        /* min-width: 200px;
+        min-height: 200px; */
+      }
+      #s2 {
+        min-height: 100vmin;
+      }
+      #s2 > div {
+        display: flex;
+        justify-content: space-between;
+        min-height: 200px;
+      }
+      #s2 > div > * {
+        flex-shrink: 0;
+        flex-grow: 0;
+      }
+      #s2 p {
+        width: 35vmin;
+        text-align: justify;
+        margin-top: 8vmin;
+        margin-right: 4vmin;
+      }
+      #s2 > svg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+      }
+      #s2-svg {
+        width: 50vmin;
+        height: 50vmin;
+      }
+      #s2-filters {
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+        width: 50%;
+      }
+      #s2-filters button {
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        color: #ff4040;
+        text-shadow: 0 0 1px #000, 0 0 2px #000, 0 0 4px #000;
+        transition: all 75ms ease-in-out;
+      }
+      #s2-filters button > span {
+        font-size: 40px;
+      }
+      #s2-filters button:hover {
+        background-color: #fffa;
+        box-shadow: -2px 3px 4px 1px #000a;
+      }
+      #s2-filters button:active {
+        background-color: #000a;
+        color: white;
+      }
+      #s2-filters ~ div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      #s3 { /* !PEP_img some dry plain */
+        background: 
+          linear-gradient(
+            #00000080,
+            transparent 2% 98%,
+            #ffffff80
+          ),
+          url("https://upload.wikimedia.org/wikipedia/commons/a/a0/Yellow_House_Draw_Head_2009.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original") fixed no-repeat bottom left / cover;
+      }
+      #s3 > div {
+        display: flex;
+        justify-content: space-between;
+      }
+      #s3 p {
+        height: fit-content;
+        align-self: center;
+        padding-right: 18px;
+      }
+      #s4 { /* !PEP_img */
+        width: 100vmin;
+        height: 100vmin;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        text-align: center;
+        background:
+          linear-gradient(
+            #00000080,
+            transparent 2% 98%,
+            #00000080
+          ),
+          url("https://upload.wikimedia.org/wikipedia/commons/9/96/Fort_Worth_Botanical_Gardens_Rose_Garden_Wiki_%281_of_1%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original") fixed no-repeat bottom left / cover;
+      }
+      #s4 > * {
+        max-width: 400px;
+        margin: 8px;
+      }
+      #s4 button {
+        margin-top: 25px;
+      }
+      #searchbar {
+        display: block;
+        margin: 25px auto 0 auto;
+        width: 50vmin;
+        font-family: monospace;
+      }
+      #stats {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        flex-wrap: wrap-reverse;
+        text-align: center;
+      }
+      #stats > div {
+        position: relative;
+        width: 150px;
+        height: 150px;
+      }
+      #stats > div:nth-of-type(2n) {
+        border: solid #00000080;
+        border-width: 0 1px;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      #stats > div:nth-of-type(2n+1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      #stats-comment {
+        text-align: right;
+        font-size: 8px;
+      }
+      #wrapper {
+        width: 100vmin;
+        /* min-width: 600px; */
+        overflow: hidden auto;
+      }
+      .button {
+        display: block;
+        width: 120px;
+        height: 40px;
+        margin: 25px 65px 25px auto;
+        background-color: #001f1f;
+        border-radius: 5px;
+        color: white;
+        font-size: 17px;
+        overflow: hidden;
+        text-wrap: nowrap;
+        transition:
+          word-spacing 75ms ease-in-out,
+          text-indent 100ms ease,
+          background-color 200ms ease-in-out,
+          translate 50ms ease-in-out;
+      }
+      .button:hover {
+        box-shadow: -2px 3px 4px #00000080;
+        word-spacing: 10px;
+        background-color: #008000;
+      }
+      .button:active {
+        text-indent: 200px;
+        translate: 5px;
+      }
+      .heading {
+        padding: 25vmin 0 25px 10vmin;
+        text-align: left;
+        font-family: "Cinzel", Arial;
+      }
+      .links {
+        padding: 25px;
+        list-style: none;
+        min-width: 150px;
+      }
+      .links > :first-child {
+        padding-bottom: 10px;
+        font-size: 20px;
+        font-weight: 800;
+      }
+      .material-icons {
+        vertical-align: middle;
+        font-size: 15px;
+      }
+      .page {
+        display: block;
+        position: relative;
+        animation: fade 750ms;
+      }
+      .page:nth-of-type(2) > section > h2 {
+        padding-left: 5vmin;
+        margin-bottom: 18px;
+      }
+      .pl-html {
+        color: #ff9000;
+      }
+      .pl-pjs {
+        color: #ff0096;
+      }
+      .pl-py {
+        color: #008000;
+      }
+      .project {
+        position: relative;
+        width: 35vmin;
+        min-height: 42vmin;
+        margin: 62px 0;
+        padding-bottom: 30px;
+        box-shadow: -2px 3px 4px #000000bf;
+        border-radius: 5px;
+        scroll-snap-align: center;
+        overflow: hidden;
+      }
+      .project a {
+        padding: 0 5px;
+        font-size: 17px;
+        font-weight: bold;
+      }
+      .project img {
+        width: 100px;
+        height: 100px;
+        border: 1px dashed #000;
+        margin: 10px auto;
+      }
+      .project code {
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        font-size: 12px;
+        padding: 5px;
+        background-color: #fff;
+        border-radius: 5px;
+        color: #000;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .project > * {
+        display: block;
+      }
+      .pt-game {
+        color: #ff0000;
+        font-family: "Press Start 2P", system-ui, monospace;
+      }
+      .pt-graphic {
+        color: #00ff00;
+        font-family: "Lacquer", cursive;
+      }
+      .pt-music {
+        color: #0000ff;
+        font-family: "UnifrakturMaguntia", Times, serif;
+      }
+      .pt-info {
+        color: #2200bf;
+      }
+      .pt-library, .pt-module {
+        color: #001f1f;
+      }
+      .pt-unknown {
+        color: #00000080;
+        font-family: "Cinzel", Arial;
+      }
+      .xlp-font {
+        font-family: "Manufacturing Consent", system-ui;
+        font-weight: 400;
+        font-style: normal;
+      }
+      :root {
+        --transparent-tiles: conic-gradient(
+            #fff 0% 25%,
+            #bbb 25% 50%,
+            #fff 50% 75%,
+            #bbb 75% 100%
+          ) repeat top left / 30px 30px;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      a:hover {
+        color: #ff8080;
+      }
+      a:visited {
+        color: initial;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background-color: #eee;
+      }
+      button {
+        cursor: pointer;
+        font-weight: bold;
+        border: none;
+        font-family: monospace;
+      }
+      footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        min-height: 500px;
+        position: sticky;
+        bottom: 0;
+        padding: 25px;
+        background: 
+          radial-gradient(
+            circle at bottom left,
+            #000f1f 50%,
+            #001f1f
+          );
+        color: #fff;
+        line-height: 20px;
+        font-size: small;
+        font-family: monospace;
+        z-index: 0;
+      }
+      footer > div {
+        width: 85%;
+        display: flex;
+        justify-content: space-between;
+      }
+      footer > p:first-of-type {
+        width: 40%;
+        padding: 0 25px;
+        text-align: justify;
+      }
+      footer > p:last-of-type {
+        text-align: center;
+        padding: 25px 0;
+        font-size: smaller;
+        border-top: 2px solid;
+        border-image: linear-gradient(90deg, #ff0000, #ffdede 90%) 1;
+      }
+      h1 {
+        font-size: 6.5vmin;
+      }
+      h1, h4 {
+        font-family: system-ui, 'Segoe UI', sans-serif;
+        text-transform: uppercase;
+        font-weight: normal;
+      }
+      main {
+        position: relative;
+        z-index: 1;
+        background-color: #fff;
+      }
+      nav {
+        position: relative;
+        right: 0;
+        width: 0;
+        background:
+          linear-gradient(90deg, #000a, transparent 17px),
+          linear-gradient(
+            #001f1f 20% 50%,
+            #000f1f 75%
+          );
+        overflow: hidden;
+        transition: width 400ms ease-in-out;
+      }
+      nav > div {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 0;
+        bottom: 15px;
+        width: 200px;
+        
+      }
+      nav button {
+        display: block;
+        width: 100%;
+        height: 50px;
+        margin: 8px 0;
+        padding-left: 20px;
+        background-color: transparent;
+        text-align: left;
+        color: #fff;
+        transition: all 400ms ease, word-spacing 200ms ease-in-out;
+        overflow: hidden;
+      }
+      nav button.selected b {
+        text-decoration: underline;
+      }
+      nav button:hover {
+        word-spacing: 10px;
+        border-top: 1px solid #ff4040;
+        border-bottom: 1px solid #ff4040;
+        color: #ff4040;
+      }
+      nav button:active {
+        text-indent: 25px;
+        border-top: 1px solid #008000;
+        border-bottom: 1px solid #008000;
+        transition: border 50ms ease;
+      }
+      p {
+        font-family: system-ui, 'Segoe UI', monospace;
+      }
+      section {
+        position: relative;
+        padding: 5vmin 8vmin;
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        scrollbar-width: none;
+      }
+      @keyframes fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @media (width <= calc(100vmin + 200px)) {
+        #container {
+          width: 100vmin;
+          /* min-width: 600px; */
+        }
+      }
+      @media (width < 590px) or (height < 590px) {
+        footer {
+          position: relative;
+        }
+      }
+
+      #menu-button,
+      #hero > *:not(#heroic-title),
+      *[aniLeft] {
+        opacity: 0;
+      }
+      .display-none {
+        display: none;
+      }
+      .unavailable {
+        filter: blur(4px);
+      }
+    </style>
+  </head>
+  <body>
+    <svg viewBox="0 0 100 100" width="0" height="0">
+      <defs>
+        <!-- octagonal shape -->
+        <path id="octagon" d="M-10,-5 L-5,-10 L5,-10 L10,-5 L10,5 L5,10 L-5,10 L-10,5 z" />
+        <!-- splash shapes -->
+        <path id="splash1" d="M75,100 C80,68 100,90 100,50 C100,0 0,25 0,10 V0 H100 V100 z" />
+        <path id="splash2" d="M50,100 C65,80 70,100 75,75 C78,60 92,70 78,82 Q72,88 72,100 z" />
+        <path id="splash3" d="M80,60 Q80,55 85,55 Q88,55 88,58 Q88,62 81,61" transform="translate(-10, 50) rotate(-30)" />
+        <!-- filter -->
+        <filter id="f1">
+          <feConvolveMatrix kernelMatrix="-.1 3 .1
+                                            -3  2 -3
+                                          -.1  -3 .1"/>
+        </filter>
+        <filter id="footer-shadow">
+          <feGaussianBlur in="SourceGraphic" stdDeviation=".5" />
+        </filter>
+      </defs>
+    </svg>
+    <div id="container">
+      <nav>
+        <div>
+          <button class="selected"><span class="material-icons">home</span> <b>home</b></button>
+          <button><span class="material-icons">code</span> <b>projects</b></button>
+          <button><span class="material-icons">question_mark</span> <b>about</b></button>
+          <button><span class="material-icons">campaign</span> <b>credits</b></button>
+          <button><span class="material-icons">
+favorite
+</span> <b>donate</b></button>
+        </div>
+      </nav>
+      <div id="wrapper">
+        <!-- Main content -->
+        <main>
+          <button id="menu-button"><span>+</span></button>
+          <div class="page">
+            <div id="hero">
+              <h1 id="heroic-title" class="xlp-font">XLP</h1>
+              <p id="heroic-text">Code some code, get idea, delete code just coded, realize idea is worse, delete worse code you coded, repeat...</p>
+              <!-- made with Inkscape, simplified by moi -->
+              <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <g id="tea-down-there" transform="scale(1.2) translate(0, -15)">
+                    <path
+                      style="fill: none; stroke-width: 1.5; stroke-linecap: round"
+                      d="m 6.4255362,89.419386 c 0,0 4.1683798,7.304715 9.4520248,4.421022 5.283648,-2.883691 3.11611,-11.251656 -0.164382,-12.929405 -3.280494,-1.677748 -11.9782188,4.595149 -10.1917497,6.673242 3.6132864,0.838242 8.7745917,-2.401756 10,-7.03696 5,-3.778158 8,2.950213 5,4.679659" />
+                    <path
+                      style="fill: none; stroke-width: 0.9; stroke-linecap: round"
+                      d="m 22.377712,87.332846 c 5.28866,-4 8.664011,4.779129 4.966227,4.448904 -3.697784,-0.330225 -3.290741,-4.520962 -0.0072,-4.379366 3.283541,0.141596 4.790299,7.937594 4.790299,7.937594 l -2.270319,0.153428 3.334929,2.540223 1.198004,-3.956323"
+                      transform="translate(1, -3)" />
+                  </g>
+                  <path
+                    id="swirl-mid"
+                    d="M 0,50 C 23.084162,21.679945 5.1776278,88.701582 29.615714,93.789472 54.053799,98.877362 71.59376,85.908367 81.011778,75.921691 94.609447,61.502998 100,25 100,25 v 75 H 0" />
+                </defs>
+                <mask id="splash-mask0">
+                  <use href="#swirl-mid" fill="#fff" />
+                </mask>
+                <mask id="splash-mask1">
+                  <path
+                    style="fill: #444"
+                    d="m 75.726313,0 c 0,0 20.397846,36.084598 13.986255,56.442255 C 83.300976,76.799912 45.603902,96.934197 25,100 h 75 V 0" />
+                  <use href="#swirl-mid" fill="#aaa" />
+                  <path
+                    style="fill: #fff"
+                    d="M 69,0 C 115.46008,35.345985 87.988265,94.302441 55,100 29.132788,97.187032 23.057067,97.559394 13.437518,85.116213 5.2074434,79.099347 19.886958,26.981433 0,47 v 53 H 100 V 0" />
+                  <path
+                    style="fill: #444"
+                    d="m 68.770606,1.6364434 c 0,0 4.807815,2.8095239 2.402489,5.0990373 C 68.767765,9.0249932 65.269732,6.186174 65.687197,3.712491 66.104665,1.2388085 65.635687,0.03639457 65.635687,0.03639457" />
+                  <path
+                    style="fill: #aaa"
+                    d="m 10.128639,37.46695 c 0,0 -1.9821609,-7.596807 3.249384,-5.94411 5.231546,1.652699 0.707038,7.00955 -2.025026,7.146366"/>
+                  <path
+                    style="fill: #fff"
+                    d="m 8.9347303,37.817478 c 0,0 -1.9821613,-7.596807 3.2493837,-5.94411 5.231546,1.652699 0.707038,7.00955 -2.025026,7.146366" />
+                  <use href="#tea-down-there" stroke="#fff" />
+                </mask>
+                <!-- !PEP_img -->
+                <image x="0" y="0" width="121" height="100" mask="url(#splash-mask1)" href="https://upload.wikimedia.org/wikipedia/commons/8/8a/How_to_find_newborn_stars_%28potw2434a%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" />
+                <!-- <image width="100" height="100" mask="url(#splash-mask1)" filter="url(#f1)" href="non-assets/2Ti4.2 (600x600).jpg" /> -->
+                <use href="#tea-down-there" stroke="#fff" filter="url(#f1)" mask="url(#splash-mask0)" />
+              </svg>
+              <button>&DownArrow;</button>
+            </div>
+            <section id="s1">
+              <div>
+                <h1 aniLeft>Support a Fellow Nerd</h1>
+                <div>
+                  <!-- made with Inkscape, simplified by moi -->
+                  <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse
+                      style="fill: #000000; fill-opacity: 0.25"
+                      cx="43"
+                      cy="71"
+                      rx="35"
+                      ry="6.5" />
+                    <path
+                      style="fill: #3d4c2a; fill-opacity: 0.5"
+                      d="m 31.476489,68.98315 c -4.103327,-0.382281 -19.916322,5.547047 1.293906,5.559573 22.693936,4.91241 26.230268,0.423607 30.774204,-1.114887 16.890987,-3.407019 7.76283,-6.432375 -7.600841,-6.382895" />
+                    <rect
+                      style="fill: #e5e5e5; stroke: #e5e5e5; stroke-width: 1.5"
+                      width="43.62"
+                      height="52"
+                      x="-49"
+                      y="34.5"
+                      rx="21.5"
+                      transform="matrix(0.39764813,-0.91753799,0.92393069,0.38255989,0,0)"
+                      ry="21.5" />
+                    <path
+                      style="fill: #bfbfbf"
+                      d="M 33.451188,63.224048 A 18.148882,18.148882 0 0 0 40.499854,64.648767 18.148882,18.148882 0 0 0 58.649133,46.500004 18.148882,18.148882 0 0 0 46.526876,29.381152 20.705488,20.705488 0 0 0 28.594637,49.899797 20.705488,20.705488 0 0 0 33.451188,63.224048 Z" />
+                    <path
+                      style="fill: #cccccc"
+                      d="M 33.451188,63.224048 A 20.705488,20.705488 0 0 0 49.299833,70.605509 20.705488,20.705488 0 0 0 70.005546,49.899797 20.705488,20.705488 0 0 0 49.299833,29.1946 20.705488,20.705488 0 0 0 46.526876,29.381152 18.148882,18.148882 0 0 1 58.649133,46.500004 18.148882,18.148882 0 0 1 40.499854,64.648767 18.148882,18.148882 0 0 1 33.451188,63.224048 Z" />
+                    <path
+                      style="fill: none; stroke: #e5e5e5; stroke-width: 5"
+                      d="M 28.018134,63.151462 C 12.768371,76.716907 5.3175887,66.872186 22.307318,57.039849" />
+                    <path
+                      style="fill: none; stroke: #000000; stroke-width: 0.75; stroke-linecap: round"
+                      d="m 12.635526,61.310524 c -1.887076,2.437301 -3.8499488,6.172686 -1.645352,9.023685 2.869428,2.892684 7.489139,1.845725 10.808637,0.384538 1.390343,-0.624782 2.708635,-1.403964 3.949872,-2.287169 M 54.651909,29.720815 c -7.545362,-1.496922 -16.081207,0.627367 -21.095906,6.708531 -6.452785,7.422562 -6.70711,19.368466 -0.150791,26.819492 M 20.147368,55.231577 c -2.745009,-7.650084 -1.846722,-16.893548 3.69354,-23.10095 6.015724,-7.006716 16.342987,-9.416394 25.050152,-6.845475 3.981433,1.786189 8.066364,3.375026 11.981385,5.287852 7.335413,4.427448 11.733298,13.242018 10.534908,21.767595 -0.970481,9.082146 -7.999914,17.163502 -16.971382,19.106298 -3.889497,0.933688 -7.969615,0.861999 -11.883341,0.110995 M 25.726974,61.896708 c -2.463535,2.580098 -5.729423,4.528387 -9.204853,5.363521 -1.075155,0.264301 -2.470321,-0.185745 -2.388569,-1.520757" />
+                    <path
+                      style="fill: #3d4c2a; fill-opacity: 0.5"
+                      d="m 38.036842,64.436839 c 0.426013,-0.489492 2.036647,-0.237066 4.739627,-0.226736 1.739208,0.111058 3.488916,-1.669824 4.943266,-0.989052 -2.588426,2.278269 10,9.974083 -9.487498,1.411184" />
+                    <path
+                      style="fill: #fff"
+                      d="m 28.158551,29.417763 c 0.364496,-0.257668 0.776396,-0.875669 1.260561,-0.676457 2.713366,1.036012 5.426733,2.072024 8.140099,3.108036 -0.649579,0.371164 -1.25076,0.819039 -1.801974,1.324343 m 10.424718,-4.288792 c -2.709185,0.28955 -4.998511,1.091943 -6.820424,1.972944 -0.558305,0.120445 -0.878762,0.8155 -1.434323,0.59105 -2.712038,-1.034049 -5.424076,-2.068099 -8.136115,-3.102148 1.340986,-0.826454 3.001353,-1.562857 4.759459,-2.23668 0.498855,-0.176291 1.195603,-0.4835 1.714435,-0.200803 3.305656,0.991879 6.611312,1.983758 9.916968,2.975637 z" />
+                    <path
+                      style="fill: none; stroke: #000; stroke-width: 0.4; stroke-linecap: round; stroke-dasharray: 0.4 2"
+                      d="m 77.028947,58.097366 c 4.516354,-8.590632 10.372641,-11.83157 5.81842,-16.239472 -4.11752,-3.985231 -9.596709,2.60391 -5.992107,6.078947 4.36568,4.208758 10.250566,-8.746273 5.557897,-16.586842" />
+                    <path
+                      style="fill: none; stroke: #000; stroke-width: 1.5; stroke-linecap: round"
+                      d="M 81.130494,29.997596 80.432664,29.29977" />
+                    <path
+                      style="fill: #fff; stroke: #000; stroke-width: 0.2"
+                      d="m 80.104797,29.78055 c -0.631429,1.581786 0.759051,2.458277 0.507967,0.597021 m 0.251231,-1.434012 c 1.583047,-0.628262 2.456753,0.76397 0.596004,0.509161" />
+                    <path
+                      style="fill: none; stroke: #000; stroke-width: 0.2; stroke-linecap: round"
+                      d="m 79.547074,30.057761 c -0.182256,0.686985 -0.115063,1.286861 0.02054,1.504976 m 1.56205,-3.068554 c 0.738147,-0.168333 1.382244,-0.104565 1.616216,0.02214" />
+                    <path
+                      style="fill: none; stroke:#000; stroke-width: 1.2; stroke-linecap: round; stroke-opacity:0.25"
+                      d="m 46.177793,33.773651 c 10.656956,5.513238 10.727752,19.872196 -0.614067,27.141735" />
+                  </svg>
+                  <p><b>Unfortunately</b>, I'm not that <i>liquid</i> right now and I know you can't really help that. However, if you'd be so kind as to indulge my coding addiction, I just might be inspired to continue making my elaborately laborous work <b style="text-decoration: double underline;">free</b>!</p>
+                </div>
+                <button class="button" donate>donate &RightArrow;</button>
+              </div>
+            </section>
+            <section id="s2">
+              <h1 aniLeft>Love <span class="xlp-font">x</span>-quisitry?</h1>
+              <div>
+                <p>Webpages, modules, graphics, games...I just might create some <i>comple<span class="xlp-font">x</span></i> programs that'l spike your interest!</p>
+                <svg id="s2-svg" viewBox="0 0 100 100">
+                  <image transform="translate(75, 30) rotate(20)" x="-10" y="-10" width="20" href="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" />
+                  <image transform="translate(50, 20) rotate(8)" x="-10" y="-10" width="25" href="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" />
+                  <image transform="translate(25, 20) rotate(-10)" x="-15" y="-15" width="35" href="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" />
+                  <image transform="translate(65, 60) rotate(12)" x="-15" y="-15" width="30" href="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" />
+                  <image transform="translate(25, 60) rotate(-4)" x="-10" y="-10" width="25" href="https://upload.wikimedia.org/wikipedia/commons/c/c6/P5.js_icon.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" />
+                  <!-- <image transform="translate(75, 30) rotate(20)" x="-10" y="-10" width="20" href="non-assets/GrayBrick_tile.png" />
+                  <image transform="translate(50, 20) rotate(8)" x="-10" y="-10" width="25" href="non-assets/GrayBrick_tile.png" />
+                  <image transform="translate(25, 20) rotate(-10)" x="-15" y="-15" width="35" href="non-assets/GrayBrick_tile.png" />
+                  <image transform="translate(65, 60) rotate(12)" x="-15" y="-15" width="30" href="non-assets/GrayBrick_tile.png" />
+                  <image transform="translate(25, 60) rotate(-4)" x="-10" y="-10" width="25" href="non-assets/GrayBrick_tile.png" /> -->
+                </svg>
+              </div>
+              <div>
+                <div id="s2-filters">
+                  <button title="Informative content" filter="info"><span class="material-icons">article</span></button>
+                  <button title="Modules/Libraries" filter="module+library"><span class="material-icons">library_add</span></button>
+                  <button title="Graphics" filter="graphic"><span class="material-icons">brush</span></button>
+                  <button title="Games" filter="game"><span class="material-icons">sports_esports</span></button>
+                  <button class="unavailable" title="Music" filter="music"><span class="material-icons">music_note</span></button>
+                </div>
+                <div>
+                  <button class="button" projects>more &RightArrow;</button>
+                  <button class="button" donate>donate &RightArrow;</button>
+                </div>
+              </div>
+              <!-- made with Inkscape, simplified by moi -->
+              <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <mask id="s2-mask">
+                    <path fill="#aaa" d="M0,65 C40,40 55,85 100,75 V100 H0 z" />
+                    <path fill="#444" d="M0,60 C40,25 60,125 100,80 V100 H0 z" />
+                    <g fill="#fff" filter="url(#f1)">
+                      <path d="m 56.369878,16.743545 c 2.647634,-4.160129 9.835382,3.210376 15.082234,2.226121 5.246851,-0.984255 9.46393,-12.7134108 13.847114,-9.8626536 4.383183,2.8507566 -4.8149,9.3689176 -3.000207,13.9912066 1.814692,4.622289 13.586775,7.504318 11.877239,12.837636 C 92.466723,41.269172 81.289573,33.389231 75.53625,35.287116 69.782927,37.185001 67.185702,46.318503 63.281436,45.256303 59.37717,44.194102 65.702519,32.161888 64.759071,28.245648 63.815623,24.329408 53.835496,24.384812 55.94682,17.460351" />
+                      <circle cx="75" cy="11" r="2.2" />
+                      <circle cx="55" cy="28" r="3.5" />
+                      <circle cx="62" cy="48" r="1.4" />
+                      <path d="M0,75 C35,45 40,100 100,90 V100 H0 z" />
+                    </g>
+                  </mask>
+                </defs>
+                <!-- !PEP_img -->
+                <image x="0" y="0" width="121" height="100" mask="url(#s2-mask)"  href="https://upload.wikimedia.org/wikipedia/commons/8/8a/How_to_find_newborn_stars_%28potw2434a%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" />
+                <!-- <image width="100" height="100" mask="url(#s2-mask)" filter="url(#f1)" href="non-assets/2Ti4.2 (600x600).jpg" /> -->
+              </svg>
+            </section>
+            <section id="s3">
+              <h1 aniLeft>Just Curious?</h1>
+              <div>
+                <p>I figure you'd wanna know as much as disclosed <b>about</b> a particularly peculiar person...</p>
+                <div>
+                  <button class="button" about>more &RightArrow;</button>
+                  <button class="button" donate>donate &RightArrow;</button>
+                </div>
+              </div>
+            </section>
+            <section id="s4">
+              <h1 aniLeft>Don't fret!</h1>
+              <h4>Donating is easy and...um...it costs you nothing!</h4>
+              <button class="button" donate>donate &rightarrow;</button>
+              <p id="fine-print">donating does in fact cost time, effort, enegery, electricity, will-power, hand-eye coordination, carbs, oxygen, kindness, certainty, a smile, a want, a good attitude, an interest, a pizza, a...oooooo...pizza... etc.<br>These statements have not been evaluated by the <b>KAPC</b> nor any <b>Guardians</b>.<br><b>All statements</b> here and throughout are personal views and are also not meant to be taken as financial advice. Do your own research!</p>
+            </section>
+          </div>
+          <div class="page display-none">
+            <h1 id="projects-heading" class="heading">projects</h1>
+            <section>
+              <h2 id="stats-title">People love statistics so...</h2>
+              <div id="stats">
+                <div>
+                  <h2 id="total-votes">100 +</h2>
+                  <p>votes</p>
+                </div>
+                <div>
+                  <h2 id="total-over">0</h2>
+                  <p>programs <b>100 +</b> votes</p>
+                  <h2 id="total-contests">0</h2>
+                  <p>contested</p>
+                  <h2 id="total-collabs">0</h2>
+                  <p>collaborations</p>
+                </div>
+                <div>
+                  <h2 id="total-releases">0</h2>
+                  <p>releases</p>
+                </div>
+              </div>
+              <p id="stats-comment">yeh...it'sa bit sad at the moment</p>
+            </section>
+            <section>
+              <h2>Search for projects down bellow</h2>
+              <input id="searchbar" type="search" placeholder="e.g. 'textalign' or '\module.py'" aniLeft />
+              <div id="projects"></div>
+            </section>
+            <section>
+              <button class="button" donate>donate &RightArrow;</button>
+            </section>
+          </div>
+          <div class="page display-none">
+            <h1 class="heading">about</h1>
+            <!-- codaru like -->
+          </div>
+          <div class="page display-none">
+            <h1 class="heading">credits</h1>
+            <!-- Simple similar to Washington's chess credits -->
+          </div>
+          <div class="page display-none">
+            <h1 class="heading">donation</h1>
+          </div>
+        </main>
+        <footer class="flex-column" style="justify-content: end;">
+          <svg id="footer-svg" viewBox="0 0 20 10">
+            <g fill="#ff4040" filter="url(#footer-shadow)" transform="translate(2, -2)">
+              <circle cx="17" cy="-1.75" r="1" />
+              <circle cx="13" cy="4" r="1" />
+              <circle cx="18" cy="3" r="2" />
+              <circle cx="13.5" cy="0" r="1.5" />
+              <circle cx="8" cy="0" r="2" />
+            </g>
+            <g fill="#000f1f">
+              <circle cx="14.5" cy="-3" r=".5" />
+              <circle cx="3" cy="-2" r="1" />
+              <circle cx="17" cy="-1.75" r="1" />
+              <circle cx="19" cy="3" r="2" />
+              <circle cx="13.5" cy="0" r="1.5" />
+              <circle cx="8" cy="0" r="3" />
+              <circle cx="13" cy="7" r="5" />
+            </g>
+          </svg>
+          <p>If any questions, comments or concerns should arise, feel free to reach out via the designated Khan Academy comment sections below! Thanks for visiting! :]</p>
+          <div>
+            <ul id="doc-links" class="links">
+              <li>pages</li>
+              <li>
+                <span class="material-icons">home</span> home
+              </li>
+              <li>
+                <span class="material-icons">code</span> projects
+              </li>
+              <li>
+                <span class="material-icons">question_mark</span> about
+              </li>
+              <li>
+                <span class="material-icons">campaign</span> credits
+              </li>
+              <li>
+                donate &RightArrow;
+              </li>
+            </ul>
+            <ul class="links">
+              <li>info</li>
+              <li>
+                <span class="material-icons">language</span> a chair
+              </li>
+              <li>
+                <span class="material-icons">phone</span> NaN
+              </li>
+              <li>
+                <span class="material-icons">mail</span> obscure mailbox
+              </li>
+              <li>
+                <img style="vertical-align: middle" width="15" src="https://upload.wikimedia.org/wikipedia/commons/f/fd/GitHub_Invertocat_Logo_invert.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" /> @XavierLPatterson
+              </li>
+            </ul>
+          </div>
+          <p>&copy; Copyright 2026 <a href="https://www.khanacademy.com/profile/UnavailablePIZZAtype" target="_blank">@UnavailablePIZZAtype</a><br>Released under the MIT License, ask before drinking my tea or using my code.</p>
+        </footer>
+      </div>
+    </div>
+    <div id="lock"></div>
+    <script>
+      
+      // const observer = new IntersectionObserver(callback);
+      // /**
+      //  * Callback for the IntersectionObserver.
+      //  * @param {IntersectionObserverEntry} entries
+      //  * @returns {void}
+      // */
+      // function callback(entries) {
+      //   // 
+      // }
+    </script>
+
+    <!-- Intro Animation Script -->
+    <script type="module">
+      const // 
+        lock = document.getElementById("lock"),
+        heroicTitle = document.getElementById("heroic-title");
+      heroicTitle.animate([{
+            color: "#fff",
+            textShadow: "none",
+            scale: 1,
+            offset: 0,
+          }, {
+            textShadow: "-8px 0 16px #000, 8px 0 16px #000",
+            scale: 1.05,
+            offset: 0.5,
+          }, {
+            color: "#fff",
+            textShadow: "none",
+            scale: 1,
+            offset: 0.85,
+          }, {
+            color: "#000",
+            offset: 1,
+        }], {
+          duration: 1900,
+          delay: 500,
+          easing: "cubic-bezier(.5, .8, .9, .1589)",
+          fill: "forwards",
+      }).onfinish = () => {
+        lock.classList.add("display-none");
+        document.querySelectorAll(
+          "#menu-button, #hero > *:not(#heroic-title)"
+        ).forEach((element) => {
+          element.animate({
+              opacity: [0, 1]
+            }, {
+              duration: 750,
+              fill: "forwards"
+            }
+          );
+        });
+      };
+    </script>
+
+    <!-- Navigation + Page Switching Script -->
+    <script type="module">
+      const //
+        container = document.getElementById("container"),
+        footerLinks = document.querySelectorAll("#doc-links li:not(:first-of-type)"),
+        menuButton = document.querySelector("#menu-button"),
+        menuChar = document.querySelector("#menu-button > span"),
+        nav = document.querySelector("nav"),
+        navButtons = document.querySelectorAll("nav button"),
+        pages = document.querySelectorAll(".page"),
+        section1 = document.getElementById("s1"),
+        wrapper = document.getElementById("wrapper"),
+        containerHeight = container.getBoundingClientRect().height,
+        toggleMenuAni = new Animation(
+          new KeyframeEffect(
+            menuChar, {
+              rotate: ["0deg", "-45deg"],
+              translate: ["0 0", "-2px 0"],
+              scale: ["1", "1.5", "1"],
+            }, {
+              duration: 400,
+              easing: "cubic-bezier(.68, -0.55, .27, 1.55)",
+              fill: "forwards"
+            }
+          )
+        ),
+        toRightAni = new Animation(
+          new KeyframeEffect(
+            container, {
+              opacity: [1, 0],
+              marginLeft: ["0", "10%"],
+              marginRight: ["0", "-10%"]
+            }, {
+              duration: 400,
+              easing: "cubic-bezier(.68, -0.55, .27, 1.55)"
+            }
+          )
+        );
+      
+      toggleMenuAni.onfinish = () => {
+        toggleMenuAni.pause();
+        toggleMenuAni.playbackRate =
+          toggleMenuAni.playbackRate === 1 ? -1 : 1;
+      };
+
+      menuButton.onclick = () => {
+        toggleMenuAni.play();
+        if (nav.style.width === "200px") nav.style.width = "0";
+        else nav.style.width = "200px";
+      };
+
+      document.querySelector(
+        "#hero button"
+      ).onclick = () => wrapper.scrollTop = containerHeight;
+
+      document.querySelectorAll(
+        "#doc-links li:not(:first-of-type), nav button"
+      ).forEach((element, i) => {
+        element.onclick = () => togglePage(i % pages.length);
+      });
+
+      document.querySelectorAll("button[projects]").forEach(element => {
+        element.onclick = () => toPage(1);
+      });
+      document.querySelectorAll("button[about]").forEach(element => {
+        element.onclick = () => toPage(2);
+      });
+      document.querySelectorAll("button[donate]").forEach(element => {
+        element.onclick = () => toPage(4);
+      });
+
+      /**** UTILITIES ****/
+      /**
+       * Toggle visibility of ".page" elements while
+       * updating the selected navbar button.
+       * @param {number} i
+      */
+      function togglePage(i) {
+        wrapper.scrollTop = 0;
+        if (nav.style.width === "200px") {
+          toggleMenuAni.play();
+          nav.style.width = "0";
+        }
+        pages.forEach((element, j) => {
+          if (j === i) {
+            element.classList.remove("display-none");
+            navButtons[j].classList.add("selected");
+          } else {
+            element.classList.add("display-none");
+            navButtons[j].classList.remove("selected");
+          }
+        });
+      }
+      /**
+       * Call togglePage after playing page switching
+       * animation.
+       * @param {number} i
+      */
+      function toPage(i) {
+        toRightAni.onfinish = () => {
+          togglePage(i);
+        };
+        toRightAni.play();
+      }
+
+      togglePage(0);
+      window.togglePage = togglePage;
+    </script>
+
+    <!-- Create/Search Program Script -->
+    <script type="module">
+      /* NOTE:
+      Only use search bar for searching (filters can be applied by doing typing types maybe by typing "\html" or "\game.py" and then text "\game.py B7").
+      Top picks are projects shown first.
+      */
+      const // 
+        projects = document.getElementById("projects"),
+        searchbar = document.getElementById("searchbar"),
+        programs = [],
+        titles = [],
+        // 100+ votes, contests, collabs, releases
+        totals = [0, 0, 0, 0];
+
+      /**** UTILITIES ****/
+      /**
+       * Register a program.
+       * @param {string} src
+       * @param {string} title
+       * @param {string} type
+       * @param {string} lang
+       * @param {boolean} promote
+       * @param {number} b
+      */
+      function registerProgram(src, title, type = undefined, lang = undefined, b = 0) {
+        const //
+          div  = document.createElement('div'),
+          img  = document.createElement('img'),
+          a    = document.createElement('a'),
+          code = document.createElement('code'),
+          span = document.createElement('span'),
+          Type = type || "unknown";
+        span.classList.add("pt-" + Type);
+        span.innerText += Type;
+        code.append("type ", span);
+        if (lang) {
+          const span = document.createElement('span');
+          span.classList.add("pl-" + lang);
+          span.innerText += lang;
+          code.append(".", span);
+        }
+        a.innerText += title;
+        a.setAttribute("href", src);
+        a.setAttribute("target", "_blank");
+        img.src = src + "/latest.png";
+        img.alt = "program thumbnail";
+        div.append(img, a, code);
+        div.classList.add('project');
+        programs.push(div);
+        titles.push(title);
+        projects.appendChild(div);
+        if (b & 1) totals[0]++;
+        if (b & 2) totals[1]++;
+        if (b & 4) totals[2]++;
+        totals[3]++;
+      }
+
+      /**** ACTIONS ****/
+      
+      // program registeration
+      registerProgram("https://www.khanacademy.com/profile/UnavailablePIZZAtype", "textalign.py 5.1 | Module", "module", "py");
+      registerProgram("https://www.khanacademy.com/profile/UnavailablePIZZAtype", "Like this AC", "graphic", "html");
+      registerProgram("https://www.khanacademy.com/profile/UnavailablePIZZAtype", "Climactic", "music", "html");
+      registerProgram("https://www.khanacademy.com/profile/UnavailablePIZZAtype", "Did you know that the 'quick' brown-ish fox jumped over the mosty lazy dog 123,456,789.0 times!!? That fox retired afterward. XP", "info", "html");
+      registerProgram("https://www.khanacademy.com/profile/UnavailablePIZZAtype", "super long title of a program that has many votes", "graphic", "py");
+      registerProgram("https://www.khanacademy.com/profile/UnavailablePIZZAtype", "another super long title", "unknown", "html");
+      registerProgram("https://www.khanacademy.com/profile/UnavailablePIZZAtype", "title 4", "game", "pjs");
+      registerProgram("https://www.khanacademy.com/profile/UnavailablePIZZAtype", "titles are very long these days", "graphic", "html");
+      registerProgram("https://www.khanacademy.com/profile/UnavailablePIZZAtype", "Alright in the End", "music", "html");
+      registerProgram("https://www.khanacademy.com/profile/UnavailablePIZZAtype", "boring program", "unknown", "html");
+      registerProgram("https://www.khanacademy.com/profile/UnavailablePIZZAtype", "B7 [Alpha.0.1 REMAKE]", "game", "py");
+      
+      document.getElementById("total-over").innerText = totals[0];
+      document.getElementById("total-contests").innerText = totals[1];
+      document.getElementById("total-collabs").innerText = totals[2];
+      document.getElementById("total-releases").innerText = totals[3];
+
+      // home filter buttons
+      document.querySelector("button[filter=\"info\"]").addEventListener("click", e => {
+        searchbar.value = '\\info ';
+        // todo: filter projects based on search
+        window.togglePage(1);
+      });
+
+      // searchbar things
+      searchbar.addEventListener("input", e => {
+        console.log("searching...");
+        // todo: filter projects based on search
+      });
+    </script>
+
+    <!-- Text Animation Script -->
+    <script type="module">
+      const //
+        observer = new IntersectionObserver(e => {
+          e.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.animate({
+                opacity: [0, 1],
+                translate: ["-25px 0", "0 0"]
+              }, {
+                duration: 500,
+                fill: "forwards",
+                easing: "cubic-bezier(.68, -0.55, .27, 1.55)"
+              });
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {rootMargin: "0% 0% -18% 0%", threshold: 0.1});
+      document.querySelectorAll("*[aniLeft]").forEach(element => {
+        observer.observe(element);
+      });
+    </script>
+
+    <!-- <script type> -->
+  </body>
+</html>
